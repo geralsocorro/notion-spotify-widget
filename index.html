@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spotify Widget (Notion)</title>
+  <style>
+    :root{
+      --w: 420px;
+      --radius: 22px;
+    }
+
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: transparent;           /* Para que combine con Notion */
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* Tarjeta estilo widget */
+    .card {
+      width: min(var(--w), 92vw);
+      border-radius: var(--radius);
+      padding: 16px;
+      color: white;
+
+      /* Fondo (puedes cambiar colores aquí) */
+      background: linear-gradient(135deg, rgba(10,10,10,.92), rgba(140,0,0,.55));
+
+      /* Sombra + borde */
+      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.10);
+
+      /* Efecto glass */
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      font-size: 14px;
+      line-height: 1.2;
+      opacity: .95;
+    }
+
+    .badge {
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.10);
+      white-space: nowrap;
+    }
+
+    iframe {
+      width: 100%;
+      height: 352px;      /* Álbum (con lista). Cambia a 152px si lo quieres compacto */
+      border: 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .hint {
+      margin-top: 10px;
+      font-size: 12px;
+      opacity: .75;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="top">
+      <div class="title">🎧 Álbum en Notion</div>
+      <div class="badge">Spotify</div>
+    </div>
+
+    <iframe
+      src="https://open.spotify.com/embed/album/6pUg9RDDoVyQQVJ48FkmXz?theme=0"
+      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+      loading="lazy"></iframe>
+
+    <div class="hint">
+      Tip: cambia <b>theme=0</b> (oscuro) por <b>theme=1</b> (claro).
+      Si lo quieres compacto, cambia la altura a <b>152px</b>.
+    </div>
+  </div>
+</body>
+</html>
